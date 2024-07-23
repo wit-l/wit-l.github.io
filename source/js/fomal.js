@@ -91,7 +91,7 @@ $.ajax({
   type: "get",
   url: "https://apis.map.qq.com/ws/location/v1/ip",
   data: {
-    key: "DY6BZ-FBJC4-X7XU5-FS7FC-FT73T-Y3B4V", // 这里要写你的KEY!!!
+    key: "DY6BZ-FBJC4-X7XU5-FS7FC-FT73T-Y3B4V",
     output: "jsonp",
   },
   dataType: "jsonp",
@@ -117,10 +117,10 @@ function getDistance(e1, n1, e2, n2) {
 
 function showWelcome() {
   let dist = getDistance(
-    113.34499552,
-    23.15537143,
-    ipLoacation.result?.location.lng,
-    ipLoacation.result?.location.lat,
+    114.187182,
+    30.532303,
+    ipLoacation.result?.location.lng, // 精度
+    ipLoacation.result?.location.lat, // 维度
   ); //这里换成自己的经纬度
   let pos = ipLoacation.result?.ad_info.nation;
   let ip;
@@ -3511,7 +3511,7 @@ function clearItem() {
 
 // 设置字体
 if (localStorage.getItem("font") == undefined) {
-  localStorage.setItem("font", "LXGW");
+  localStorage.setItem("font", "MapleMonoItalic");
 }
 setFont(localStorage.getItem("font"));
 function setFont(n) {
@@ -3522,11 +3522,11 @@ function setFont(n) {
       "-apple-system",
     );
     document.body.style.fontFamily =
-      "-apple-system, Consolas_1, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
+      "-apple-system, MapleMonoItalic, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
   } else {
     document.documentElement.style.setProperty("--global-font", n);
     document.body.style.fontFamily =
-      "var(--global-font),-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
+      "var(--global-font),-apple-system, MapleMonoItalic, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
   }
   try {
     setFontBorder();
@@ -4010,12 +4010,12 @@ function createWinbox() {
 <h2>二、字体设置</h2>
 {% note warning modern %}非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方{% endnote %}
 <p id="swfs">
-<a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan'!important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
-<a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR'!important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
+<a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan' !important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
+<a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR' !important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
 <a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW'!important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
-<a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB'!important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
-<a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST'!important;color:black" onclick="setFont('YSHST')">优设好身体</a>
-<a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans'!important;color:black" onclick="setFont('MiSans')">MiSans</a>
+<a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB' !important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
+<a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST' !important;color:black" onclick="setFont('YSHST')">优设好身体</a>
+<a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans' !important;color:black" onclick="setFont('MiSans')">MiSans</a>
 <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:black" onclick="setFont('default')">系统默认</a>
 </p>
 
