@@ -263,23 +263,23 @@ magnet:
   devide: 3
   display:
     - name: 算法
-      display_name: 小Fの算法学习笔记
+      display_name: 算法学习笔记
       icon: 🍡
-    - name: 计算机基础
-      display_name: 小Fの计算机基础笔记
+    - name: React框架
+      display_name: 框架学习笔记
       icon: 🍼
-    - name: 魔改教程
-      display_name: 小Fの博客魔改教程
-      icon: 🍉
-    - name: Java基础
-      display_name: 小FのJava基础笔记
-      icon: 🍟
-    - name: 数据库
-      display_name: 小Fの数据库笔记
-      icon: 🍨
-    - name: 演示
-      display_name: 小Fの案例演示笔记
-      icon: 🍥
+    # - name: 魔改教程
+    #   display_name:
+    #   icon: 🍉
+    # - name: Java基础
+    #   display_name:
+    #   icon: 🍟
+    # - name: 数据库
+    #   display_name:
+    #   icon: 🍨
+    # - name: 演示
+    #   display_name:
+    #   icon: 🍥
   color_setting:
     text_color: black # 文字默认颜色
     text_hover_color: white # 文字鼠标悬浮颜色
@@ -291,4 +291,3 @@ magnet:
     index: 0
   temple_html: '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet">${temple_html_item}</div></div>'
   plus_style: ""
-
