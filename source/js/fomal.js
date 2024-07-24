@@ -413,15 +413,15 @@ document.addEventListener("copy", function () {
 });
 
 // f12提醒但不禁用
-document.onkeydown = function (e) {
+document.addEventListener("keydown", (e) => {
   if (
-    123 == e.keyCode ||
+    e.key === "F12" ||
     (e.ctrlKey &&
       e.shiftKey &&
-      (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) ||
-    (e.ctrlKey && 85 === e.keyCode)
+      (e.key === "J" || e.key === "I" || e.key === "C")) ||
+    (e.ctrlKey && e.key === "u")
   ) {
-    debounce(function () {
+    debounce(() => {
       new Vue({
         data: function () {
           this.$notify({
@@ -437,7 +437,7 @@ document.onkeydown = function (e) {
       });
     }, 300);
   }
-};
+});
 /* 禁用f12与按键防抖 end */
 
 //----------------------------------------------------------------
