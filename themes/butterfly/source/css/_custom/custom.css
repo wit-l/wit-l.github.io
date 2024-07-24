@@ -1270,8 +1270,8 @@ input#pic-link {
 
 /* heo 加载动画头像(刷新时页面中间闪过的头像) */
 .loading-img {
-  background: url(https://s2.loli.net/2024/07/22/kc3eosrQVngRDNw.jpg) no-repeat
-    center center;
+  background: url(https://tuchuang.voooe.cn/images/2024/07/24/avatar.webp)
+    no-repeat center center;
   background-size: cover;
 }
 
