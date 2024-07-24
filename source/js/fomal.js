@@ -3516,17 +3516,17 @@ if (localStorage.getItem("font") == undefined) {
 setFont(localStorage.getItem("font"));
 function setFont(n) {
   localStorage.setItem("font", n);
-  if (n == "default") {
+  if (n === "default") {
     document.documentElement.style.setProperty(
       "--global-font",
-      "-apple-system",
+      "-apple-system, system-ui",
     );
     document.body.style.fontFamily =
-      "MapleMonoItalic, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
+      "-apple-system, system-ui, MapleMonoItalic, MapleMono, LXGW, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
   } else {
     document.documentElement.style.setProperty("--global-font", n);
     document.body.style.fontFamily =
-      "var(--global-font), MapleMonoItalic, -apple-system, system-ui, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
+      "var(--global-font), MapleMonoItalic, MapleMono, -apple-system, system-ui, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
   }
   try {
     setFontBorder();
@@ -3972,178 +3972,182 @@ function createWinbox() {
   // 每一类我放了一个演示，直接往下复制粘贴 a标签 就可以，需要注意的是 函数里面的链接 冒号前面需要添加反斜杠\进行转义
   winbox.body.innerHTML = `
 <div class="settings" style="display: block;">
-<div id="article-container" style="padding:12px;">
-<br>
-<center><p><button onclick="reset()" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认设置</button></p></center>
+  <div id="article-container" style="padding:12px;">
+    <br>
+    <center>
+      <p><button onclick="reset()" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认设置</button></p>
+    </center>
+    <h2>一、显示偏好</h2>
+    <div class="transValue" style="font-weight:bold;padding-left:10px">不透明度 (0%-100%): ${curTransNum}%</div>
+    <div class="range">
+      <input id="transSet" type="range" min="0" max="100" step="1" value=${curTransNum} oninput="setTrans()">
+      <p class="rang_width" id="rang_trans" style="width:${curTransMini}%"></p>
+    </div>
 
-<h2>一、显示偏好</h2>
-
-<div class="transValue" style="font-weight:bold;padding-left:10px">不透明度 (0%-100%): ${curTransNum}%</div>
-<div class="range">
-  <input id="transSet" type="range" min="0" max="100" step="1" value=${curTransNum} oninput="setTrans()">
-  <p class="rang_width" id="rang_trans" style="width:${curTransMini}%"></p>
-</div>
-
-<div class="blurValue" style="font-weight:bold;padding-left:10px">模糊半径 (开启模糊生效 0px-100px): ${curBlur} px</div>
-<div class="range">
-  <input id="blurSet" type="range" min="0" max="100" step="1" value="${curBlur}" oninput="setBlurNum()">
-  <p class="rang_width" id="rang_blur" style="width:${miniBlur}%"></p>
-</div>
-
-
-<div class="content" style="display:flex">
-  <div class="content-text" style="font-weight:bold; padding-left:10px"> 星空特效 (夜间模式) </div><input type="checkbox" id="universeSet" onclick="setUniverse()">
-  <div class="content-text" style="font-weight:bold; padding-left:20px"> 霓虹灯 (夜间模式) </div><input type="checkbox" id="lightSet" onclick="setLight()">
-</div>
-
-<div class="content" style="display:flex">
-  <div class="content-text" style="font-weight:bold; padding-left:10px"> 模糊效果 (消耗性能) </div><input type="checkbox" id="blur" onclick="setBlur()">
-  <div class="content-text" style="font-weight:bold; padding-left:20px"> 侧边栏 (默认开) </div><input type="checkbox" id="rightSideSet" onclick="toggleRightside()">
-</div>
-
-<div class="content" style="display:flex">
-  <div class="content-text" style="font-weight:bold; padding-left:10px"> 帧率监测 (刷新生效) </div><input type="checkbox" id="fpson" onclick="fpssw()">
-  <div class="content-text" style="font-weight:bold; padding-left:10px"> 雪花特效 (白天模式) </div><input type="checkbox" id="snowSet" onclick="setSnow()">
-</div>
+    <div class="blurValue" style="font-weight:bold;padding-left:10px">模糊半径 (开启模糊生效 0px-100px): ${curBlur} px</div>
+    <div class="range">
+      <input id="blurSet" type="range" min="0" max="100" step="1" value="${curBlur}" oninput="setBlurNum()">
+      <p class="rang_width" id="rang_blur" style="width:${miniBlur}%"></p>
+    </div>
 
 
-<h2>二、字体设置</h2>
-{% note warning modern %}非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方{% endnote %}
-<p id="swfs">
-<a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan' !important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
-<a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR' !important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
-<a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW' !important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
-<a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB' !important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
-<a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST' !important;color:black" onclick="setFont('YSHST')">优设好身体</a>
-<a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans' !important;color:black" onclick="setFont('MiSans')">MiSans</a>
-<a class="swf" id="swf_MapleMono" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMono' !important;color:black" onclick="setFont('MapleMono')">MapleMono</a>
-<a class="swf" id="swf_Monaco" href="javascript:;" rel="noopener external nofollow" style="font-family:'Monaco' !important;color:black" onclick="setFont('Monaco')">Monaco</a>
-<a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMonoItalic' !important;color:black" onclick="setFont('default')">默认(MapleMonoItalic)</a>
-</p>
+    <div class="content" style="display:flex">
+      <div class="content-text" style="font-weight:bold; padding-left:10px"> 星空特效 (夜间模式) </div>
+      <input type="checkbox" id="universeSet" onclick="setUniverse()">
+      <div class="content-text" style="font-weight:bold; padding-left:20px"> 霓虹灯 (夜间模式) </div>
+      <input type="checkbox" id="lightSet" onclick="setLight()">
+    </div>
 
-<h2>三、主题色设置</h2>
-<div class="content" style="display:flex"><input type="radio" id="red" name="colors" value=" "
-        onclick="setColor('red')"><input type="radio" id="orange" name="colors" value=" "
-        onclick="setColor('orange')"><input type="radio" id="yellow" name="colors" value=" "
-        onclick="setColor('yellow')"><input type="radio" id="green" name="colors" value=" "
-        onclick="setColor('green')"><input type="radio" id="blue" name="colors" value=" "
-        onclick="setColor('blue')"><input type="radio" id="heoblue" name="colors" value=" "
-        onclick="setColor('heoblue')"><input type="radio" id="darkblue" name="colors" value=" "
-        onclick="setColor('darkblue')"><input type="radio" id="purple" name="colors" value=" "
-        onclick="setColor('purple')"><input type="radio" id="pink" name="colors" value=" "
-        onclick="setColor('pink')" checked="checked"><input type="radio" id="black" name="colors" value=" "
-        onclick="setColor('black')"><input type="radio" id="blackgray" name="colors" value=" "
-        onclick="setColor('blackgray')"></div>
+    <div class="content" style="display:flex">
+      <div class="content-text" style="font-weight:bold; padding-left:10px"> 模糊效果 (消耗性能) </div>
+      <input type="checkbox" id="blur" onclick="setBlur()">
+      <div class="content-text" style="font-weight:bold; padding-left:20px"> 侧边栏 (默认开) </div>
+      <input type="checkbox" id="rightSideSet" onclick="toggleRightside()">
+    </div>
 
-<h2>四、背景设置</h2>
-<center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认背景</button></center>
+    <div class="content" style="display:flex">
+      <div class="content-text" style="font-weight:bold; padding-left:10px"> 帧率监测 (刷新生效) </div>
+      <input type="checkbox" id="fpson" onclick="fpssw()">
+      <div class="content-text" style="font-weight:bold; padding-left:10px"> 雪花特效 (白天模式) </div>
+      <input type="checkbox" id="snowSet" onclick="setSnow()">
+    </div>
 
-<h3>1. 二次元</h3>
-{% folding cyan, 查看二次元背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)')"></a>
+    <h2>二、字体设置</h2>
+    {% note warning modern %}非商免字体未经授权只能个人使用。本站为完全非商业、非盈利性质的网站，平时用于个人学习交流，如有侵权请联系站长删除，谢谢！ —— 致版权方{% endnote %}
+    <p id="swfs">
+    <a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan' !important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
+    <a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR' !important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
+    <a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW' !important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
+    <a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB' !important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
+    <a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST' !important;color:black" onclick="setFont('YSHST')">优设好身体</a>
+    <a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans' !important;color:black" onclick="setFont('MiSans')">MiSans</a>
+    <a class="swf" id="swf_MapleMono" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMono' !important;color:black" onclick="setFont('MapleMono')">MapleMono</a>
+    <a class="swf" id="swf_MapleMonoItalic" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMonoItalic' !important;color:black" onclick="setFont('MapleMonoItalic')">MapleMonoItalic</a>
+    <a class="swf" id="swf_Monaco" href="javascript:;" rel="noopener external nofollow" style="font-family:'Monaco' !important;color:black" onclick="setFont('Monaco')">Monaco</a>
+    <a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:'-apple-system', 'system-ui' !important;color:black" onclick="setFont('default')">系统默认</a>
+    </p>
 
-</div>
-{% endfolding %}
+    <h2>三、主题色设置</h2>
+    <div class="content" style="display:flex"><input type="radio" id="red" name="colors" value=" "
+            onclick="setColor('red')"><input type="radio" id="orange" name="colors" value=" "
+            onclick="setColor('orange')"><input type="radio" id="yellow" name="colors" value=" "
+            onclick="setColor('yellow')"><input type="radio" id="green" name="colors" value=" "
+            onclick="setColor('green')"><input type="radio" id="blue" name="colors" value=" "
+            onclick="setColor('blue')"><input type="radio" id="heoblue" name="colors" value=" "
+            onclick="setColor('heoblue')"><input type="radio" id="darkblue" name="colors" value=" "
+            onclick="setColor('darkblue')"><input type="radio" id="purple" name="colors" value=" "
+            onclick="setColor('purple')"><input type="radio" id="pink" name="colors" value=" "
+            onclick="setColor('pink')" checked="checked"><input type="radio" id="black" name="colors" value=" "
+            onclick="setColor('black')"><input type="radio" id="blackgray" name="colors" value=" "
+            onclick="setColor('blackgray')"></div>
 
+    <h2>四、背景设置</h2>
+    <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认背景</button></center>
 
-<h3>2. 风景</h3>
+    <h3>1. 二次元</h3>
+    {% folding cyan, 查看二次元背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)')"></a>
 
-{% folding cyan, 查看风景背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a>
-
-
-</div>
-{% endfolding %}
-
-<h3>3. 萌宠</h3>
-
-{% folding cyan, 查看萌宠背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')"></a>
-
-</div>
-{% endfolding %}
-
-<h3>4. 渐变色</h3>
-{% folding cyan, 查看渐变色背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a>
-</div>
-{% endfolding %}
+    </div>
+    {% endfolding %}
 
 
-<h3>5. 纯色</h3>
-{% folding cyan, 查看纯色背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> 
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> 
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a>
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> 
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> 
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> 
-<a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  
-<input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input>
-</div>
-{% endfolding %}
+    <h3>2. 风景</h3>
+
+    {% folding cyan, 查看风景背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a>
+
+
+    </div>
+    {% endfolding %}
+
+    <h3>3. 萌宠</h3>
+
+    {% folding cyan, 查看萌宠背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')"></a>
+
+    </div>
+    {% endfolding %}
+
+    <h3>4. 渐变色</h3>
+    {% folding cyan, 查看渐变色背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a>
+    </div>
+    {% endfolding %}
+
+
+    <h3>5. 纯色</h3>
+    {% folding cyan, 查看纯色背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> 
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> 
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> 
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> 
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> 
+    <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  
+    <input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input>
+    </div>
+    {% endfolding %}
 
 
 
-<h3>6. 适配手机</h3>
-{% folding cyan, 查看适配手机的背景 %}
-<div class="bgbox">
-<a href="javascript:;" rel="noopener external nofollow" style="background-image:url()" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a>
+    <h3>6. 适配手机</h3>
+    {% folding cyan, 查看适配手机的背景 %}
+    <div class="bgbox">
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url()" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a>
 
-</div>
-{% endfolding %}
-
-
-<h3>7. 壁纸API</h3>
-{% folding cyan, 查看壁纸API系列背景 %}
-<div class="bgbox">
-<a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" onclick="changeBg('${bingDayBg}')"></a>
-<a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" onclick="changeBg('${bingHistoryBg}')"></a>
-<a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" onclick="changeBg('${EEEDog}')"></a>
-<a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" onclick="changeBg('${seovx}')"></a>
-<a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" onclick="changeBg('${picsum}')"></a>
-<a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a>
-<a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a>
-<a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a>
-</div>
-{% endfolding %}
+    </div>
+    {% endfolding %}
 
 
-<h3>8. 自定义背景</h3>
-{% folding cyan, 设置自定义背景 %}
-<p><center>
-<input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://source.fomal.cc/img/home_bg.webp">
-</center></p>
-<p><center>
-<button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button>
-</center></p>
-{% endfolding %}
+    <h3>7. 壁纸API</h3>
+    {% folding cyan, 查看壁纸API系列背景 %}
+    <div class="bgbox">
+    <a id="bingDayBox" rel="noopener external nofollow" style="background-image: ${bingDayBg}" class="box apiBox" onclick="changeBg('${bingDayBg}')"></a>
+    <a id="bingHistoryBox" rel="noopener external nofollow" style="background-image: ${bingHistoryBg}" class="box apiBox" onclick="changeBg('${bingHistoryBg}')"></a>
+    <a id="EEEDogBox" rel="noopener external nofollow" style="background-image: ${EEEDog}" class="box apiBox" onclick="changeBg('${EEEDog}')"></a>
+    <a id="seovxBox" rel="noopener external nofollow" style="background-image: ${seovx}" class="box apiBox" onclick="changeBg('${seovx}')"></a>
+    <a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" onclick="changeBg('${picsum}')"></a>
+    <a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a>
+    <a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a>
+    <a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a>
+    </div>
+    {% endfolding %}
 
-<br>
-<center><div style="font-size:1.2em;color:var(--theme-color);font-weight:bold;">------ ( •̀ ω •́ )y 到底啦 ------</div></center>
-<br>
 
-</div>
+    <h3>8. 自定义背景</h3>
+    {% folding cyan, 设置自定义背景 %}
+    <p><center>
+    <input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="请输入有效的图片链接，如 https://source.fomal.cc/img/home_bg.webp">
+    </center></p>
+    <p><center>
+    <button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈切换背景🌈</button>
+    </center></p>
+    {% endfolding %}
 
+    <br>
+    <center><div style="font-size:1.2em;color:var(--theme-color);font-weight:bold;">------ ( •̀ ω •́ )y 到底啦 ------</div></center>
+    <br>
+  </div>
 </div>
 
 `;
