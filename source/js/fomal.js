@@ -3978,7 +3978,7 @@ function createWinbox() {
 
 <h2>一、显示偏好</h2>
 
-<div class="transValue" style="font-weight:bold;padding-left:10px">透明度 (0%-100%): ${curTransNum}%</div>
+<div class="transValue" style="font-weight:bold;padding-left:10px">不透明度 (0%-100%): ${curTransNum}%</div>
 <div class="range">
   <input id="transSet" type="range" min="0" max="100" step="1" value=${curTransNum} oninput="setTrans()">
   <p class="rang_width" id="rang_trans" style="width:${curTransMini}%"></p>
