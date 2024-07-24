@@ -80,43 +80,43 @@
 /* 字体引入 */
 @font-face {
   font-family: YSHST;
-  src: url(https://fonts.s3.bitiful.net/YSHaoShenTi2.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/YSHaoShenTi.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: MiSans;
-  src: url(https://fonts.s3.bitiful.net/MiSans-Regular.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/MiSans.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: HYTMR;
-  src: url(https://fonts.s3.bitiful.net/HYTangMeiRen55W.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/HYTangMeiRen.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: LXGW;
-  src: url(https://fonts.s3.bitiful.net/LXGW.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/LXGW.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: TTQHB;
-  src: url(https://fonts.s3.bitiful.net/TianTianQuanHaiBao.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/TianTianQuanHaiBao.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: ZhuZiAWan;
-  src: url(https://fonts.s3.bitiful.net/ZhuZiAWan2.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/ZhuZiAWan.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: Monaco;
-  src: url(https://fonts.s3.bitiful.net/Monaco.woff2);
+  src: url(https://static-resource.s3.bitiful.net/fonts/Monaco.woff2);
   font-display: swap;
 }
 /* 特定部件字体调用 */
