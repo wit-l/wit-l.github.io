@@ -80,15 +80,15 @@
 /* 字体引入 */
 @font-face {
   font-family: YSHST;
-  src: url(https://fonts.s3.bitiful.net/YSHaoShenTi-2.woff2);
+  src: url(https://fonts.s3.bitiful.net/YSHaoShenTi2.woff2);
   font-display: swap;
 }
 
-/* @font-face { */
-/*   font-family: MiSans; */
-/*   src: url(https://fonts.s3.bitiful.net/MiSans-Regular.woff2); */
-/*   font-display: swap; */
-/* } */
+@font-face {
+  font-family: MiSans;
+  src: url(https://fonts.s3.bitiful.net/MiSans-Regular.woff2);
+  font-display: swap;
+}
 
 @font-face {
   font-family: HYTMR;
@@ -109,17 +109,16 @@
 }
 
 @font-face {
-  font-family: Consolas_1;
-  src: url(https://data-static.netdun.net/Fomalhaut/fonts/Consolas.woff2);
-  font-display: swap;
-}
-
-@font-face {
   font-family: ZhuZiAWan;
   src: url(https://fonts.s3.bitiful.net/ZhuZiAWan2.woff2);
   font-display: swap;
 }
 
+@font-face {
+  font-family: Monaco;
+  src: url(https://fonts.s3.bitiful.net/Monaco.woff2);
+  font-display: swap;
+}
 /* 特定部件字体调用 */
 div#menus {
   font-weight: bold !important;

@@ -1260,7 +1260,7 @@ function changeMouseMode() {
 var now1 = new Date();
 
 function createtime1() {
-  var grt = new Date("07/22/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  var grt = new Date("07/21/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
   now1.setTime(now1.getTime() + 250);
   var days = (now1 - grt) / 1000 / 60 / 60 / 24;
   var dnum = Math.floor(days);
@@ -3373,11 +3373,11 @@ var now = new Date();
 function createtime() {
   // 当前时间
   now.setTime(now.getTime() + 1000);
-  var start = new Date("07/19/2024 00:00:00"); // 旅行者1号开始计算的时间
+  var start = new Date("07/21/2024 00:00:00"); // 旅行者1号开始计算的时间
   var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒
   var unit = (dis / 149600000).toFixed(6); // 天文单位
   // 网站诞生时间
-  var grt = new Date("07/20/2024 00:00:00");
+  var grt = new Date("07/21/2024 00:00:00");
   var days = (now - grt) / 1e3 / 60 / 60 / 24,
     dnum = Math.floor(days),
     hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,
@@ -3522,11 +3522,11 @@ function setFont(n) {
       "-apple-system",
     );
     document.body.style.fontFamily =
-      "-apple-system, MapleMonoItalic, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
+      "MapleMonoItalic, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI' , 'Helvetica Neue' , Lato, Roboto, 'PingFang SC' , 'Microsoft JhengHei' , 'Microsoft YaHei' , sans-serif";
   } else {
     document.documentElement.style.setProperty("--global-font", n);
     document.body.style.fontFamily =
-      "var(--global-font),-apple-system, MapleMonoItalic, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
+      "var(--global-font), MapleMonoItalic, -apple-system, system-ui, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif";
   }
   try {
     setFontBorder();
@@ -4012,11 +4012,13 @@ function createWinbox() {
 <p id="swfs">
 <a class="swf" id="swf_ZhuZiAWan" href="javascript:;" rel="noopener external nofollow" style="font-family:'ZhuZiAWan' !important;color:black" onclick="setFont('ZhuZiAWan')">筑紫A丸标准体2.0</a>
 <a class="swf" id="swf_HYTMR" href="javascript:;" rel="noopener external nofollow" style="font-family:'HYTMR' !important;color:black" onclick="setFont('HYTMR')">汉仪唐美人</a>
-<a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW'!important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
+<a class="swf" id="swf_LXGW" href="javascript:;" rel="noopener external nofollow" style="font-family:'LXGW' !important;color:black" onclick="setFont('LXGW')">霞鹜文楷</a>
 <a class="swf" id="swf_TTQHB" href="javascript:;" rel="noopener external nofollow" style="font-family:'TTQHB' !important;color:black" onclick="setFont('TTQHB')">甜甜圈海报</a>
 <a class="swf" id="swf_YSHST" href="javascript:;" rel="noopener external nofollow" style="font-family:'YSHST' !important;color:black" onclick="setFont('YSHST')">优设好身体</a>
 <a class="swf" id="swf_MiSans" href="javascript:;" rel="noopener external nofollow" style="font-family:'MiSans' !important;color:black" onclick="setFont('MiSans')">MiSans</a>
-<a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif;!important;color:black" onclick="setFont('default')">系统默认</a>
+<a class="swf" id="swf_MapleMono" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMono' !important;color:black" onclick="setFont('MapleMono')">MapleMono</a>
+<a class="swf" id="swf_Monaco" href="javascript:;" rel="noopener external nofollow" style="font-family:'Monaco' !important;color:black" onclick="setFont('Monaco')">Monaco</a>
+<a class="swf" id="swf_default" href="javascript:;" rel="noopener external nofollow" style="font-family:'MapleMonoItalic' !important;color:black" onclick="setFont('default')">默认(MapleMonoItalic)</a>
 </p>
 
 <h2>三、主题色设置</h2>
