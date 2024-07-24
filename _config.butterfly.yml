@@ -224,17 +224,17 @@ reward:
   enable: true
   coinAudio: https://npm.elemecdn.com/akilar-candyassets@1.0.36/audio/aowu.m4a
   QR_code:
-    - img: https://tuchuang.voooe.cn/images/2024/07/22/QRcode_Wechat.png
+    - img: https://tuchuang.voooe.cn/images/2024/07/24/QRCodeWechat.webp
       link:
       text: 微信
-    - img: https://tuchuang.voooe.cn/images/2024/07/22/QRcode_alipay.png
+    - img: https://tuchuang.voooe.cn/images/2024/07/24/QRCodeAlipay.webp
       link:
       text: 支付宝
 
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: false
+  enable: true
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url: https://github.com/wit-l/wit-l.github.io/edit/main/source/
