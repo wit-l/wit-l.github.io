@@ -794,6 +794,15 @@ if (document.body.clientWidth > 992) {
   }
   (function ($) {
     $.fn.nekoScroll = function (option) {
+      const nowMonth = new Date().getMonth();
+      const season =
+        nowMonth >= 11 && nowMonth <= 1
+          ? "冬"
+          : nowMonth >= 8 && nowMonth <= 10
+            ? "秋"
+            : nowMonth >= 5 && nowMonth <= 7
+              ? "夏"
+              : "春";
       var defaultSetting = {
         top: "0",
         scroWidth: 6 + "px",
@@ -801,8 +810,8 @@ if (document.body.clientWidth > 992) {
         zoom: 0.9,
         borderRadius: 5 + "px",
         right: 55.6 + "px",
-        nekoImg: "https://bu.dusays.com/2022/07/20/62d812db74be9.png",
-        hoverMsg: "春天啦~",
+        nekoImg: "/assets/neko.webp",
+        hoverMsg: season + "天啦~",
         color: "var(--theme-color)",
         during: 500,
         blog_body: "body",
@@ -1269,14 +1278,12 @@ function createtime1() {
     `欢迎来到Wit-l🐍の小家!`,
     `Future is now 🍭🍭🍭`,
     `
-        
-██     ██ ██ ████████       ██      
-██     ██ ██    ██          ██      
-██  █  ██ ██    ██    █████ ██      
-██ ███ ██ ██    ██          ██      
- ███ ███  ██    ██          ███████ 
-                                              
-`,
+    ██     ██ ██ ████████       ██     
+    ██     ██ ██    ██          ██     
+    ██  █  ██ ██    ██    █████ ██     
+    ██ ███ ██ ██    ██          ██     
+     ███ ███  ██    ██          ███████
+    `,
     "小站已经苟活",
     dnum,
     "天啦!",
