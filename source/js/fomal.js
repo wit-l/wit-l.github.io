@@ -796,7 +796,7 @@ if (document.body.clientWidth > 992) {
     $.fn.nekoScroll = function (option) {
       const nowMonth = new Date().getMonth();
       const season =
-        nowMonth >= 11 && nowMonth <= 1
+        nowMonth >= 11 || nowMonth <= 1
           ? "冬"
           : nowMonth >= 8 && nowMonth <= 10
             ? "秋"
