@@ -632,14 +632,14 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size: 15px
-  code-font-size: 14px
+  global-font-size: 15.5px
+  code-font-size: 14.5px
   # -apple-system, BlinkMacSystemFont, "Segoe UI" , "Helvetica Neue" , Lato, Roboto, "PingFang SC" , "Microsoft JhengHei" , "Microsoft YaHei" , sans-serif
   # Wenkai, consolas, -apple-system, 'Quicksand', 'Nimbus Roman No9 L', 'PingFang SC', 'Hiragino Sans GB', 'Noto Serif SC', 'Microsoft Yahei', 'WenQuanYi Micro Hei', 'ST Heiti', sans-serif;
-  font-family: LXGW, MapleMono, Monaco, -apple-system, system-ui, sans-serif
+  font-family: var(--global-font), LXGW, MapleMono, Monaco, MapleMonoItalic, -apple-system, system-ui, sans-serif
   # consolas, ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
   # ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
-  code-font-family: MapleMono, Monaco, MapleMonoItalic, -apple-system, system-ui, sans-serif
+  code-font-family: MapleMono, Monaco, MapleMonoItalic, var(--global-font), -apple-system, system-ui, sans-serif
 
 # Font settings for the site title and site subtitle
 # https://fonts.googleapis.com/css?family=Titillium+Web&display=swap
@@ -647,6 +647,7 @@ font:
 # 左上角網站名字 主頁居中網站名字
 blog_title_font:
   font_link:
+  # 若需要让此处字体其随主题字体同步则在前面加上一项var(--blobal-font)
   font-family: MapleMonoItalic, MapleMono, Monaco, LXGW, -apple-system, system-ui
 
 # The setting of divider icon (水平分隔線圖標設置)
@@ -705,8 +706,8 @@ aside:
       link: https://github.com/wit-l
   card_announcement:
     enable: true
-    content: <center><b>--- 主域名 ---<br><a href="https://www.wit-l.us.kg" title="此线路部署于github" class="anno_content"><font color="#5ea6e5">wit-l.us.kg</font></a>&nbsp;|&nbsp;<a href="https://witty.us.kg" title="重定向到wit-l.us.kg" class="anno_content"><font color="#5ea6e5">witty.us.kg</font></a>
-    # content: <center><b>--- 主域名 ---<br><a href="https://www.fomal.cc" title="此线路部署于Vercel" class="anno_content"><font color="#5ea6e5">fomal.cc</font></a>&nbsp;|&nbsp;<a href="https://www.fomal.cn" title="此线路部署于Vercel" class="anno_content"><font color="#5ea6e5">fomal.cn</font></a><br>--- 备用域名 ---<br><a href="https://netlify.fomal.cc" title="此线路部署于Netlify" class="anno_content"><font color="#5ea6e5">netlify.fomal.cc</font></a><br><a href="https://cloudflare.fomal.cc" title="此线路部署于Cloudflare" class="anno_content"><font color="#5ea6e5">cloudflare.fomal.cc</font></a><br>--- 网站安卓APP ---<br>🍧<a href="https://lskypro.acozycotage.net/Fomalhaut/Fomalhaut.apk" title="点这里可以下载网站的安卓APP" class="anno_content"><font color="#5ea6e5">点此下载</font></a>🍧</b></center>
+    content: <center><b>--- 域名 ---<br><a href="https://www.wit-l.us.kg" title="此线路部署于github" class="anno_content"><font color="#5ea6e5">wit-l.us.kg</font></a>&nbsp;|&nbsp;<a href="https://www.witty.us.kg" title="重定向到wit-l.us.kg" class="anno_content"><font color="#5ea6e5">witty.us.kg</font></a></b></center>
+    # <br>--- 备用域名 ---<br><a href="https://netlify.fomal.cc" title="此线路部署于Netlify" class="anno_content"><font color="#5ea6e5">netlify.fomal.cc</font></a><br><a href="https://cloudflare.fomal.cc" title="此线路部署于Cloudflare" class="anno_content"><font color="#5ea6e5">cloudflare.fomal.cc</font></a><br>--- 网站安卓APP ---<br>🍧<a href="https://lskypro.acozycotage.net/Fomalhaut/Fomalhaut.apk" title="点这里可以下载网站的安卓APP" class="anno_content"><font color="#5ea6e5">点此下载</font></a>🍧
   card_recent_post:
     enable: false
     limit: 3 # if set 0 will show all
