@@ -886,7 +886,7 @@ lazyload:
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
 pwa:
-  enable: false
+  enable: true
   manifest: /manifest.json
   theme_color: var(--theme-color)
   apple_touch_icon: /assets/gulp/siteicon/128.png
