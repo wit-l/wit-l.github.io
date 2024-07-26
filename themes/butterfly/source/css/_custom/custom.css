@@ -1198,13 +1198,13 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2024/07/22/1440x3200.png);
+  background-image: url(https://tuchuang.voooe.cn/images/2024/07/26/cat.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2024/07/22/mobile_night1440x3200.png);
+  background-image: url(https://tuchuang.voooe.cn/images/2024/07/26/mobile_info_night1440x3200.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -2981,9 +2981,9 @@ hr:before {
   left: 34px;
   content: "博天随机壁纸";
 }
-#unsplashBox::before {
+#waiDongmanBox::before {
   left: 15px;
-  content: "Unsplash随机壁纸";
+  content: "歪动漫随机壁纸";
 }
 
 /* 评论区圆角 */

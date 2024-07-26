@@ -3656,7 +3656,7 @@ function toggleRightside() {
 
 // 透明度调节滑块
 if (localStorage.getItem("transNum") == undefined) {
-  localStorage.setItem("transNum", 95);
+  localStorage.setItem("transNum", 75);
 }
 var curTransNum = localStorage.getItem("transNum");
 var curTransMini = curTransNum * 0.95;
@@ -3677,7 +3677,7 @@ function setTrans() {
 
 // 模糊度调节滑块
 if (localStorage.getItem("blurRad") == undefined) {
-  localStorage.setItem("blurRad", 20);
+  localStorage.setItem("blurRad", 5);
 }
 var curBlur = localStorage.getItem("blurRad"); // 当前模糊半径
 var miniBlur = curBlur * 0.95;
@@ -3789,25 +3789,25 @@ let seovx = "url(https://cdn.seovx.com/?mom=302)";
 // picsum随机
 let picsum = "url(https://picsum.photos/1920/1080.webp)";
 // 小歪二次元
-// let waiDongman = "url(https://api.ixiaowai.cn/api/api.php)";
+let waiDongman = "url(https://api.aixiaowai.cn/api/api.php)";
 //  小歪高清壁纸
-let waiBizhi = "url(https://api.ixiaowai.cn/gqapi/gqapi.php)";
+let waiBizhi = "url(https://api.aixiaowai.cn/gqapi/gqapi.php)";
 // 博天随机
 let btstu = "url(http://api.btstu.cn/sjbz/?lx=suiji)";
 // tuapi 动漫
 // let tuapi = "url(https://tuapi.eees.cc/api.php?category=dongman)";
 // unsplash随机 https://source.unsplash.com/random/1920x1080/daily (weekly)
-let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
+// let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 // 更换背景(自己的代码)
 if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg);
-    --darkmode-bg:url(https://s2.loli.net/2024/07/22/yBD8ZRSOpVaecX5.png);
-    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2024/07/22/mobile1440x3200.png);
-    --mobilenight-bg: url(https://s2.loli.net/2024/07/22/IKpwqUVayGS5l6g.png);
+    --default-bg: url(https://tuchuang.voooe.cn/images/2024/07/26/hui1.webp);
+    --darkmode-bg:url(https://tuchuang.voooe.cn/images/2024/07/26/darkmode.webp);
+    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2024/07/26/mobileDay.webp);
+    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2024/07/26/mobileNight.webp);
   }`;
 }
 // 切换背景主函数
@@ -4054,14 +4054,14 @@ function createWinbox() {
     <h3>1. 二次元</h3>
     {% folding cyan, 查看二次元背景 %}
     <div class="bgbox">
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7-2.jpg)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/hui.jpg)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/darkmode1920x1080.png)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/rain.jpg)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/wallhaven-9dpjvx_1920x1080.png)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/night.jpg)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/7.jpg)')"></a>
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/22/pcr_nn_k.png)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/hui1.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/hui1.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/hui.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/hui.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/darkmode.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/darkmode.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/rain.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/rain.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/wallhaven-9dpjvx_.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/wallhaven-9dpjvx_.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/night.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/night.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/Asuna.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/Asuna.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/pcr.webp)" class="imgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/pcr.webp)')"></a>
 
     </div>
     {% endfolding %}
@@ -4120,7 +4120,8 @@ function createWinbox() {
     <h3>6. 适配手机</h3>
     {% folding cyan, 查看适配手机的背景 %}
     <div class="bgbox">
-    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url()" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/mobileNight.webp)" class="pimgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/mobileNight.webp)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://tuchuang.voooe.cn/images/2024/07/26/mobileDay.webp)" class="pimgbox" onclick="changeBg('url(https://tuchuang.voooe.cn/images/2024/07/26/mobileDay.webp)')"></a>
 
     </div>
     {% endfolding %}
@@ -4136,7 +4137,7 @@ function createWinbox() {
     <a id="picsumBox" rel="noopener external nofollow" style="background-image: ${picsum}" class="box apiBox" onclick="changeBg('${picsum}')"></a>
     <a id="waiBizhiBox" rel="noopener external nofollow" style="background-image: ${waiBizhi}" class="box apiBox" onclick="changeBg('${waiBizhi}')"></a>
     <a id="btstuBox" rel="noopener external nofollow" style="background-image: ${btstu}" class="box apiBox" onclick="changeBg('${btstu}')"></a>
-    <a id="unsplashBox" rel="noopener external nofollow" style="background-image: ${unsplash}" class="box apiBox" onclick="changeBg('${unsplash}')"></a>
+    <a id="waiDongmanBox" rel="noopener external nofollow" style="background-image: ${waiDongman}" class="box apiBox" onclick="changeBg('${waiDongman}')"></a>
     </div>
     {% endfolding %}
 
