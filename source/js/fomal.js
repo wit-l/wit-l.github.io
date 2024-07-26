@@ -3982,7 +3982,7 @@ function createWinbox() {
   <div id="article-container" style="padding:12px;">
     <br>
     <center>
-      <p><button onclick="reset()" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认设置</button></p>
+      <p><button onclick="reset()" style="background:linear-gradient(to right, #fc354c, #0abfbc);display:block;width:40%;padding:15px 0;border-radius:30px;color:white;font-size:1.1em;"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认设置</button></p>
     </center>
     <h2>一、显示偏好</h2>
     <div class="transValue" style="font-weight:bold;padding-left:10px">不透明度 (0%-100%): ${curTransNum}%</div>
@@ -4049,7 +4049,7 @@ function createWinbox() {
             onclick="setColor('blackgray')"></div>
 
     <h2>四、背景设置</h2>
-    <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;恢复默认背景</button></center>
+    <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate" style="animation: fa-spin 8s linear infinite;"></i>&nbsp;恢复默认背景</button></center>
 
     <h3>1. 二次元</h3>
     {% folding cyan, 查看二次元背景 %}
