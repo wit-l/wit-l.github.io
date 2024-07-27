@@ -94,7 +94,7 @@ $.ajax({
     key: "DY6BZ-FBJC4-X7XU5-FS7FC-FT73T-Y3B4V",
     output: "jsonp",
   },
-  dataType: "jsonp",
+  dataType: "jsonp", // 必须使用jsonp（通过javascript函数包装json数据返回）
   success: function (res) {
     ipLoacation = res;
   },
