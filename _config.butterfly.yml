@@ -379,7 +379,7 @@ facebook_comments:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId: https://twikoo-api-jade.vercel.app
+  envId: twikoo-api.wit-l.us.kg
   region:
   visitor: false
   option:
