@@ -2,7 +2,7 @@
   /* 为载入的字体取名字(随意) */
   font-family: "MapleMono";
   /* 字体文件地址(相对或者绝对路径都可以) */
-  src: url("/fonts/MapleMono.woff2");
+  src: url("https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/fonts/MapleMono.woff2");
   /* 定义加粗样式(加粗多少) */
   font-weight: normal;
   /* 定义字体样式(斜体/非斜体) */
@@ -12,13 +12,6 @@
 }
 @font-face {
   font-family: "MapleMonoItalic";
-  src: url("/fonts/MapleMonoItalic.woff2");
-  font-weight: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Monaco";
-  src: url("/fonts/Monaco.woff2");
-  font-weight: normal;
+  src: url("https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/fonts/MapleMonoItalic.woff2");
   font-display: swap;
 }
