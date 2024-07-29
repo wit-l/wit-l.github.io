@@ -756,7 +756,7 @@ runtimeshow:
 
 # Aside widget - Newest Comments
 newest_comments:
-  enable: true
+  enable: false
   sort_order: # Don't modify the setting unless you know how it works
   limit: 5
   storage: 10 # unit: mins, save data to localStorage
@@ -1080,10 +1080,10 @@ wowjs:
 envelope_comment:
   enable: true #控制开关
   custom_pic:
-    cover: https://tuchuang.voooe.cn/images/2023/01/02/violet.webp #信笺头部图片
-    line: https://tuchuang.voooe.cn/images/2023/01/02/line.webp #信笺底部图片
-    beforeimg: https://tuchuang.voooe.cn/images/2023/01/02/before.webp # 信封前半部分
-    afterimg: https://tuchuang.voooe.cn/images/2023/01/02/after.webp # 信封后半部分
+    cover: https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/images/violet.webp #信笺头部图片
+    line: https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/images/line.webp #信笺底部图片
+    beforeimg: https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/images/before.webp # 信封前半部分
+    afterimg: https://cdn.jsdelivr.net/gh/wit-l/static_resources@latest/images/after.webp # 信封后半部分
   message: #信笺正文，多行文本，写法如下
     - 本站有哪些做得好或者不好的地方？
     - 或者你有什么改进的建议？
