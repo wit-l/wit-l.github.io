@@ -119,8 +119,8 @@ function showWelcome() {
   let dist = getDistance(
     114.21772,
     30.55473,
-    ipLoacation.result?.location.lng, // 精度
-    ipLoacation.result?.location.lat, // 维度
+    ipLoacation.result?.location.lng, // 经度
+    ipLoacation.result?.location.lat, // 纬度
   ); //这里换成自己的经纬度
   let pos = ipLoacation.result?.ad_info.nation;
   let ip;
