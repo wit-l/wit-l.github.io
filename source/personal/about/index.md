@@ -1,26 +1,8 @@
 ---
 title: 关于
-date: 2022-08-10 16:05:11
+date: 2024-08-10 20:00:00
 ---
 
-{% note warning modern %}<b>非商免字体、网图</b>等资源未经授权仅限个人使用，不得用于商业用途。本站平时仅用于交流和学习，如涉及侵权请联系站长删除对应资源，谢谢！ —— 致版权方{% endnote %}
+# 关于本人
 
-## 0.网站自述视频🎬
-
-<div class="about_page">
-  <div align=center class="aspect-ratio">
-      <iframe src="https://player.bilibili.com/player.html?aid=474023258&&page=1&as_wide=1&high_quality=1&danmaku=0" 
-      scrolling="no" 
-      border="0" 
-      frameborder="no" 
-      framespacing="0" 
-      high_quality=1
-      danmaku=1 
-      allowfullscreen="true"> 
-      </iframe>
-  </div>
-</div>
-
-<br>
-
-
+    本人来自湖北，是一个刚毕业（24年）的计算机科学与技术专业的本科生，对linux非常感兴趣，热衷于学习计算机相关知识，特别爱折腾--将neovim配置成能够胜任各语言基础开发的IDE；在zsh上使用支持插件懒加载的zinit插件管理器，真正做到shell的即开即用，无需等待(尤其是nvim中的shell)。

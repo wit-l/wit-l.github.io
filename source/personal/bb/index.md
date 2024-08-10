@@ -1,12 +1,12 @@
 ---
 title: 唠叨
-date: 2022-09-08 23:08:13
+date: 2024-08-10 23:28:00
 comments: false
 ---
 
 <style>
 /* 哔哔页面 */
-#bibi button {
+# bibi button {
   color: #fff;
   border: 0;
   margin: 20px auto;
@@ -23,12 +23,12 @@ comments: false
   outline: 0;
 }
 
-#bibi .bb-info {
+# bibi .bb-info {
   font-weight: 700;
   font-size: 22px;
 }
 
-#bibi .bb-card {
+# bibi .bb-card {
   padding: 15px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
@@ -46,17 +46,17 @@ comments: false
   }
 }
 
-#bibi .bb-card:hover {
+# bibi .bb-card:hover {
   box-shadow: 0 5px 10px 8px #07111b29;
   transform: translateY(-3px);
 }
 
-#bibi .card-header {
+# bibi .card-header {
   display: flex;
   align-items: center;
 }
 
-#bibi .card-header .avatar {
+# bibi .card-header .avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -65,29 +65,29 @@ comments: false
   overflow: hidden;
 }
 
-#bibi .card-header svg {
+# bibi .card-header svg {
   height: 20px;
   width: 20px;
   margin-left: 5px;
 }
 
-#bibi .card-header .card-time {
+# bibi .card-header .card-time {
   font-size: 12px;
   text-shadow: #d9d9d9 0 0 1px, #fffffb 0 0 1px, #fffffb 0 0 2px;
   margin-left: 10px;
 }
 
-#bibi .card-content {
+# bibi .card-content {
   padding: 10px 0;
   white-space: pre-wrap;
 }
 
-#bibi .card-footer {
+# bibi .card-footer {
   display: flex;
   padding-bottom: 10px;
 }
 
-#bibi .card-footer .card-label {
+# bibi .card-footer .card-label {
   border-radius: 5px;
   padding: 0 5px;
   font-weight: 550;
@@ -102,7 +102,7 @@ div#bb_loading img{
   border-radius: 15px;
 }
 
-#bb-main {
+# bb-main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
