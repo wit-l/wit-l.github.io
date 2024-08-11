@@ -917,6 +917,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
+    - <meta name="baidu-site-verification" content="codeva-lnC3wCyrUO" />
     - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"> # 常规css
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"> # 引入组件库(f12)
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
@@ -1027,7 +1028,7 @@ CDN:
 wowjs:
   enable: true #控制动画开关。true是打开，false是关闭
   priority: 10 #过滤器优先级
-  mobile: false #移动端是否启用，默认移动端禁用
+  mobile: true #移动端是否启用，默认移动端禁用
   animateitem:
     - class: recent-post-item #必填项，需要添加动画的元素的class
       style: animate__zoomIn # animate__zoomIn #必填项，需要添加的动画
@@ -1043,12 +1044,12 @@ wowjs:
     #   offset: 30
     #   iteration: 1
     # 分类磁贴
-    # - class: catalog_magnet
-    #   style: animate__zoomIn
-    #   duration: 1.5s·
-    #   delay: 200ms
-    #   offset: 30
-    #   iteration: 1
+    - class: catalog_magnet
+      style: animate__zoomIn
+      duration: 1.5s
+      delay: 200ms
+      offset: 30
+      iteration: 1
     # 侧边卡片栏
     - class: card-widget
       style: animate__zoomIn
@@ -1057,12 +1058,12 @@ wowjs:
       offset: 30
       iteration: 1
     # 分页按钮
-    # - class: pagination
-    #   style: animate__jackInTheBox
-    #   duration: 1.5s
-    #   delay: 200ms
-    #   offset: 30
-    #   iteration: 1
+    - class: pagination
+      style: animate__jackInTheBox
+      duration: 1.5s
+      delay: 200ms
+      offset: 30
+      iteration: 1
     # 友链卡片
     # - class: flink-list-card
     #   style: animate__flipInY
