@@ -37,14 +37,14 @@ type: "link"
 
 <!-- tab 🌴General -->
 
-| 名称       | 数值                                           |
-| ---------- | ---------------------------------------------- |
-| 站点名称   | Wit-l🐍                                        |
-| 站点截图   | <https://wit-l.us.kg/siteshot/wit-l.us.kg.web> |
-| 站点链接   | <https://wit-l.us.kg/>                         |
-| 站长头像   | <https://wit-l.us.kg/assets/avatar.webp>       |
-| 站点描述   | Future is now🍭🍭🍭                            |
-| 站点关键词 | Wit-l🐍,个人博客,代码                          |
+| 名称       | 数值                                            |
+| ---------- | ----------------------------------------------- |
+| 站点名称   | Wit-l🐍                                         |
+| 站点截图   | <https://wit-l.us.kg/siteshot/wit-l.us.kg.webp> |
+| 站点链接   | <https://wit-l.us.kg/>                          |
+| 站长头像   | <https://wit-l.us.kg/assets/avatar.webp>        |
+| 站点描述   | Future is now🍭🍭🍭                             |
+| 站点关键词 | Wit-l🐍,个人博客,代码                           |
 
 <!-- endtab -->
 
