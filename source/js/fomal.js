@@ -3518,7 +3518,7 @@ function clearItem() {
 
 // 设置字体
 if (localStorage.getItem("font") == undefined) {
-  localStorage.setItem("font", "MapleMonoItalic");
+  localStorage.setItem("font", "LXGW");
 }
 setFont(localStorage.getItem("font"));
 function setFont(n) {
