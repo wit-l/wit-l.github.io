@@ -280,8 +280,8 @@ magnet:
     - name: 数据库
       display_name: wit-lの数据库笔记
       icon: 🍨
-    - name: IDE
-      display_name: wit-lのIDE
+    - name: 工作流
+      display_name: wit-lの工作流记录
       icon: 🍥
   color_setting:
     text_color: black # 文字默认颜色
