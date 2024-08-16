@@ -20,13 +20,13 @@ cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 
 ## <abbr title="Integrated Development Environment（集成开发环境）">IDE</abbr> -- [Neovim](#Neovim)
 
-&nbsp;&nbsp;&nbsp;&nbsp;本人的集成开发环境基于LazyVim预配置框架的Neovim，并根据个人爱好额外安装了一些插件，进行了个性化的配置。效果图如下：
+&nbsp;&nbsp;&nbsp;&nbsp;集成开发环境基于LazyVim预配置框架的Neovim，并根据个人爱好额外安装了一些插件，进行了个性化的配置。效果图如下：
 ![Neovim](https://cdn.jsdelivr.net/gh/wit-l/filebed@main/images/17237363426531723736342485.png)
-&nbsp;&nbsp;&nbsp;&nbsp;本人的Neovim配置[在这里](https://github.com/wit-l/NeovimStarter/)。其中最底部的状态栏是tmux的。
+&nbsp;&nbsp;&nbsp;&nbsp;Neovim配置[在这里](https://github.com/wit-l/NeovimStarter/)。其中最底部的状态栏是tmux的。
 
 ## 终端复用器 -- [Tmux](#Tmux)
 
-&nbsp;&nbsp;&nbsp;&nbsp;本人使用tmux来对终端下的多个窗口（window）、会话（session）、面板（pane）进行管理。效果图如下：
+&nbsp;&nbsp;&nbsp;&nbsp;使用tmux来对终端下的多个窗口（window）、会话（session）、面板（pane）进行管理。效果图如下：
 ![tmux](https://cdn.jsdelivr.net/gh/wit-l/filebed@main/images/17237330735801723733072788.png)
 &nbsp;&nbsp;&nbsp;&nbsp;tmux使用tpm插件管理器，配置文件[在这里](https://github.com/wit-l/Dotfiles/tree/main/tmux)。
 
