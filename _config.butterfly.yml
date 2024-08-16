@@ -495,10 +495,10 @@ google_adsense:
 # --------------------------------------
 
 site_verification:
-  # - name: google-site-verification
-  #   content: xxxxxx
-  # - name: baidu-site-verification
-  #   content: xxxxxxx
+  - name: google-site-verification
+    content: OAW4evmaO7UeYtONMr9YG14bzpFZnHorZFofwna9-ts
+  - name: baidu-site-verification
+    content: codeva-lnC3wCyrUO
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
@@ -917,7 +917,6 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    - <meta name="baidu-site-verification" content="codeva-lnC3wCyrUO" />
     - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"> # 常规css
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"> # 引入组件库(f12)
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" crossorigin="anonymous">
