@@ -650,7 +650,7 @@ font:
   font-family: var(--global-font), LXGW, MapleMono, Monaco, MapleMonoItalic, -apple-system, system-ui, sans-serif
   # consolas, ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
   # ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
-  code-font-family: Monaco, MapleMono, MapleMonoItalic, var(--global-font), -apple-system, system-ui, sans-serif
+  code-font-family: MapleMono, Monaco, MapleMonoItalic, var(--global-font), -apple-system, system-ui, sans-serif
 
 # Font settings for the site title and site subtitle
 # https://fonts.googleapis.com/css?family=Titillium+Web&display=swap
