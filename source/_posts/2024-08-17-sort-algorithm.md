@@ -5,12 +5,12 @@ tags:
   - Sorting
 categories:
   - 算法
-mathjax: true
 abbrlink: d3afdbfa
 date: 2024-08-17 09:40:46
 description: 本文主要记录本人所常用的排序算法
 sticky: 1
 swiper_index: 1
+cover: https://tuchuang.voooe.cn/images/2024/08/17/lianggongchunri_1920x1080.webp
 ---
 
 # ~~冒泡排序~~
