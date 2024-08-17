@@ -9,6 +9,8 @@ mathjax: true
 abbrlink: d3afdbfa
 date: 2024-08-17 09:40:46
 description: 本文主要记录本人所常用的排序算法
+sticky: 1
+swiper_index: 1
 ---
 
 # ~~冒泡排序~~
@@ -256,6 +258,77 @@ function maxHeapSort(arr = [], len = arr.length) {
     [arr[0], arr[i]] = [arr[i], arr[0]];
     maxHeapify(arr, 0, i);
   }
+}
+```
+
+<!-- endtab -->
+
+{% endtabs %}
+
+# 鸽巢排序
+
+{% tabs 分栏 %}
+
+<!-- tab C++ -->
+
+```cpp
+int PigeonholeSort(int *arr, const int size) {
+    int max, min, i;
+    for (i = 1, max = min = arr[0]; i < size; ++i) {
+        if (arr[i] > max) {
+            max = arr[i];
+        } else if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    int *pigeonhole = new int[max - min + 1]{0};
+    if (!pigeonhole)
+        return 1;
+    for (i = 0; i < size; ++i) {
+        ++pigeonhole[arr[i] - min];
+    }
+    i = 0;
+    for (int k = 0; i <= max - min; ++i) {
+        while (pigeonhole[i]) {
+            arr[k++] = i + min;
+            --pigeonhole[i];
+        }
+    }
+    delete[] pigeonhole;
+    pigeonhole = nullptr;
+    return 0;
+}
+```
+
+<!-- endtab -->
+
+<!-- tab JavaScript -->
+
+```JavaScript
+function pigeonholeSort(arr = [], len = arr.length) {
+  let i = 1;
+  let max, min;
+  for (max = min = arr[0]; i < len; ++i) {
+    if (arr[i] > max) {
+      max = arr[i];
+    } else if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  let pigeonhole = Array(max - min + 1).fill(0);
+  if (!pigeonhole) return -1;
+  for (i = 0; i < len; ++i) {
+    ++pigeonhole[arr[i] - min];
+  }
+  i = 0;
+  for (let k = 0; i <= max - min; ++i) {
+    while (pigeonhole[i]) {
+      --pigeonhole[i];
+      arr[k++] = i + min;
+    }
+  }
+  pigeonhole = null;
+  return;
 }
 ```
 

@@ -11,8 +11,8 @@ categories:
 description: 本文主要介绍我的Tmux和Neovim工作流
 abbrlink: c777369
 date: 2024-08-15 20:59:29
-sticky: 1
-swiper_index: 1
+sticky: 2
+swiper_index: 2
 cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 ---
 
