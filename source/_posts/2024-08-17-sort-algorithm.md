@@ -7,6 +7,7 @@ categories:
   - 算法
 abbrlink: d3afdbfa
 date: 2024-08-17 09:40:46
+updated: 2024-08-18 17:38:00
 description: 本文主要记录本人所常用的排序算法
 sticky: 1
 swiper_index: 1
@@ -281,7 +282,7 @@ int PigeonholeSort(int *arr, const int size) {
             min = arr[i];
         }
     }
-    int *pigeonhole = new int[max - min + 1]{0};
+    int *pigeonhole = new int[max - min + 1]();
     if (!pigeonhole)
         return 1;
     for (i = 0; i < size; ++i) {
@@ -308,7 +309,7 @@ int PigeonholeSort(int *arr, const int size) {
 function pigeonholeSort(arr = [], len = arr.length) {
   let i = 1;
   let max, min;
-  for (max = min = arr[0]; i < len; ++i) {
+  for (max = min = arr[0]; i < len; ++i) { // O(n)
     if (arr[i] > max) {
       max = arr[i];
     } else if (arr[i] < min) {
@@ -317,11 +318,11 @@ function pigeonholeSort(arr = [], len = arr.length) {
   }
   let pigeonhole = Array(max - min + 1).fill(0);
   if (!pigeonhole) return -1;
-  for (i = 0; i < len; ++i) {
+  for (i = 0; i < len; ++i) { // O(n)
     ++pigeonhole[arr[i] - min];
   }
   i = 0;
-  for (let k = 0; i <= max - min; ++i) {
+  for (let k = 0; i <= max - min; ++i) { // O(range)
     while (pigeonhole[i]) {
       --pigeonhole[i];
       arr[k++] = i + min;
@@ -335,3 +336,10 @@ function pigeonholeSort(arr = [], len = arr.length) {
 <!-- endtab -->
 
 {% endtabs %}
+
+&nbsp;&nbsp;&nbsp;&nbsp;显然鸽巢排序的时间复杂度为O(n+range)，由于需要申请值的范围大小的空间作为鸽巢，所以空间复杂度为O(range)。
+&nbsp;&nbsp;&nbsp;&nbsp;特点如下：
+
+- 当待排序值的范围远小于个数n时，时间复杂度趋于O(n)；
+- 由上可知，该算法对<abbr title="小范围内、大量">密集型</abbr>数据排序时的效率特别高，但对分布稀疏的数据排序效率则比较低；
+- 由于需要给范围内的每一个整数一个鸽巢，因此，仅适用于为整数排序；
