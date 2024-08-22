@@ -123,7 +123,7 @@ deploy:
   - type: git
     repository: git@github.com:wit-l/wit-l.github.io.git
     branch: main
-  - type: baidu_url_submitter
+  # - type: baidu_url_submitter
   # - type: git
   #   #repo改为repo: git@域名:/var/repo/hexo.git
   #   repo: git@43.249.9.21:/var/repo/hexo.git
