@@ -208,7 +208,7 @@ function mergeSort(arr = [], low = 0, high = arr.length - 1) {
 
 {% tabs 分栏 %}
 
-<!-- tab cpp -->
+<!-- tab C++ -->
 
 ```cpp
 void MaxHeapify(int *arr, int root, const int range) {
