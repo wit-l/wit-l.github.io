@@ -8,14 +8,19 @@ categories:
 description: 本文主要记录React的学习笔记
 abbrlink: 1e564abe
 date: 2024-08-22 21:40:35
-updated: 2024-08-24 14:00:00
+updated: 2024-08-25 00:52:00
 sticky: 1
 swiper_index: 2
+cover: https://tuchuang.voooe.cn/images/2024/08/17/one_room-1-1_1920x1080.webp
 ---
 
 # React
 
-&nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建{% nota UI, 用户界面（User Interface）%}的 JavaScript 库，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。
+&nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建{% nota UI, 用户界面（User Interface）%}的 **JavaScript 库**，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。
+
+{% note info flat %}
+React和Vue不同，严格来说并非一个框架。生产级的React框架有：[{% nota Next.js, 它的页面路由是一个全栈的React 框架，由Vercel维护 %}](https://nextjs.org)、[{% nota Remix, 一个具有嵌套路由的全栈式React框架 %}](https://remix.run)、[{% nota Gatsby, 一个快速的支持CMS的网站的React框架 %}](https://www.gatsbyjs.com/)、[{% nota Expo, 用于原生应用，可以让你创建具有真正原生 UI 的应用，包括 Android、iOS，以及 Web 应用 %}](https://expo.dev/)
+{% endnote %}
 
 # 组件
 
@@ -198,8 +203,8 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 
 {% folding yellow, 组件实例的生命周期 %}
 
-函数组件：每次渲染时，React会调用函数组件并重新计算其JSX输出，但它不会丢弃已存在的状态和副作用（`useEffect`等）。React通过“Virtual DOM”来高效地更新UI，而不是每次都销毁并重新创建整个组件树。
-状态和副作用：组件的状态（通过`useState`等）会在渲染之间保持不变。副作用（通过useEffect等设置的）也会根据依赖项来决定是否重新执行。
+**函数组件**：每次渲染时，React会调用函数组件并重新计算其JSX输出，但它不会丢弃已存在的状态和副作用（`useEffect`等）。React通过“Virtual DOM”来高效地更新UI，而不是每次都销毁并重新创建整个组件树。
+**状态和副作用**：组件的状态（通过`useState`等）会在渲染之间保持不变。副作用（通过`useEffect`等设置的）也会根据依赖项来决定是否重新执行。
 
 {% endfolding %}
 
@@ -210,13 +215,13 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 
 &nbsp;&nbsp;&nbsp;&nbsp;最常使用的是`useState` Hook，它提供以下两个功能：
 
-- **state变量**用于保存渲染间的数据。
-- **state setter函数**更新变量并触发 React 再次渲染组件。
+- **`state`变量**用于保存渲染间的数据。
+- **`state setter`函数**更新变量并触发 React 再次渲染组件。
 
 {% folding yellow, 关于Hook %}
 
 - Hook即钩子，在React中，所有以“use”开头的函数都被称为Hook。
-- **Hooks ——以 `use` 开头的函数——只能在组件或自定义 Hook 的最顶层调用。**你不能在条件语句、循环语句或其他嵌套函数内调用 Hook。Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。
+- <b>Hooks ——以 `use` 开头的函数——只能在组件或自定义 Hook 的最顶层调用。</b>你不能在条件语句、循环语句或其他嵌套函数内调用 Hook。Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。
 
 {% endfolding %}
 
@@ -229,7 +234,7 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 - 每个组件实例的 `state` 是隔离且私有的。也就是说，渲染同一个组件两次，每个副本都有独立的`state`，互不影响。
 - 不要直接更改 `state` 的值，这无法触发组件重渲染。因为`useState` 返回的 `state` 是值类型，仅仅是本次渲染所使用的一个快照版本，而非其本体;因此，在渲染过程中，对 `state` 做出的更新只能在下次渲染时生效，本次渲染过程中的 `state` 不会变化。
 
-{% folding yellow, useState 的实现原理 %}
+{% folding yellow, React如何区分多个state？以及为什么useState只能在顶层调用？这涉及到 useState 的实现原理 %}
 
 ```JavaScript
 // 按顺序存储多个state到数组中
@@ -293,14 +298,22 @@ console.log(state); // After-click: ['Fred', 'Yardley']
 
 # 渲染和提交
 
-&nbsp;&nbsp;&nbsp;&nbsp;有两种原因会导致组件的渲染:
+&nbsp;&nbsp;&nbsp;&nbsp;组件必须被React渲染后才能显示到屏幕上。在React应用中，一次屏幕更新都会发生以下三个步骤：
+
+1. 触发一次渲染。
+2. 渲染组件。
+3. 提交到 DOM。
+
+## 触发渲染
+
+&nbsp;&nbsp;&nbsp;&nbsp;有两种原因会导致组件被渲染:
 
 1. 组件的初次渲染。
-2. 组件（或者其祖先之一）的[状态发生了改变](#)。
+2. 组件（或者其祖先之一）的[**状态发生了改变**](#)引起的组件重渲染。
 
-## 初次渲染
+### 初次渲染
 
-&nbsp;&nbsp;&nbsp;&nbsp;当应用启动时，会触发初次渲染。 框架和沙箱有时会隐藏这部分代码，但它是通过调用 `createRoot` 方法并传入目标 `DOM` 节点，然后用你的组件调用 `render` 函数完成的：
+&nbsp;&nbsp;&nbsp;&nbsp;当应用启动时，会触发初次渲染。框架和沙箱有时会隐藏这部分代码，但它是通过调用 `createRoot` 方法并传入目标 DOM 节点，然后用你的组件调用 `render` 函数完成的：
 {% tabs 分栏 %}
 
 <!-- tab index.js -->
@@ -332,6 +345,26 @@ export default function Image() {
 
 {% endtabs %}
 
-## 状态（state）更新时重新渲染
+### 状态（state）更新时的**重新渲染**
 
-&nbsp;&nbsp;&nbsp;&nbsp;一旦组件被初次渲染，你就可以通过使用 setter 函数 更新其状态（state）来触发之后的渲染。更新组件的状态会自动将一次渲染送入队列。
+&nbsp;&nbsp;&nbsp;&nbsp;初次渲染后可以通过使用 `setter` 函数更新其状态（`state`）来触发重新渲染。更新组件的状态会自动将一次渲染送入队列。
+
+## 渲染组件
+
+&nbsp;&nbsp;&nbsp;&nbsp;触发渲染后，React 会调用你的组件来确定要在屏幕上显示的内容。
+
+- 在进行初次渲染时, React 会调用根组件（的渲染方法 `render`），并递归地渲染所有子组件，再生成各自的虚拟 DOM节点，最终生成虚拟 DOM 树。
+- 对于后续的重渲染, React 会调用内部状态更新触发了渲染的函数组件（的组件函数），并更新虚拟 DOM 树。
+
+{% folding yellow, React 的默认重渲染行为 %}
+
+在默认未做任何优化的情况下，如果一个组件被重新渲染，它的所有子组件（无论子组件的 `props` 或 `state` 是否发生变化）也会被重新渲染。这意味着 React 会**递归地重新调用**这些子组件的**渲染方法**（对于类组件）或**组件函数**（对于函数组件），从而生成它们各自的虚拟 DOM，最终得到新的虚拟 DOM 树；再使用高效的 `Diffing` 算法（协调算法）**从组件状态更新引发的那个组件开始**，逐层比较新旧虚拟 DOM 树; React 以此计算出需要更新真实 DOM 的**最小差异集**； 因此，如果更新的组件在树中的位置非常高，那么默认渲染更新组件内所有嵌套组件的行为就会导致性能低下。
+
+{% endfolding %}
+
+## React 把更改提交到 DOM 上
+
+&nbsp;&nbsp;&nbsp;&nbsp;渲染组件之后，React 将会修改真实 DOM。
+
+- 对于初次渲染， React 将生成的虚拟 DOM 树转化为实际的 HTML 元素，再使用 `appendChild()` DOM API 将其创建的所有 DOM 节点放在屏幕上。
+- 对于重渲染， React 将应用最少的必要操作（在渲染时计算！），以使得 DOM 与最新的渲染输出相互匹配。
