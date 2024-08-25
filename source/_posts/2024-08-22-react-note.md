@@ -8,7 +8,7 @@ categories:
 description: 本文主要记录React的学习笔记
 abbrlink: 1e564abe
 date: 2024-08-22 21:40:35
-updated: 2024-08-25 00:52:00
+updated: 2024-08-25 18:35:00
 sticky: 1
 swiper_index: 2
 cover: https://tuchuang.voooe.cn/images/2024/08/17/one_room-1-1_1920x1080.webp
@@ -213,10 +213,23 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 1. **保留**渲染之间的数据。
 2. **触发** React 使用新数据重新渲染组件。
 
-&nbsp;&nbsp;&nbsp;&nbsp;最常使用的是`useState` Hook，它提供以下两个功能：
+&nbsp;&nbsp;&nbsp;&nbsp;为此，React 提供了 `useState` Hook，它提供以下两个功能：
 
 - **`state`变量**用于保存渲染间的数据。
-- **`state setter`函数**更新变量并触发 React 再次渲染组件。
+- **`state setter`函数**更新变量并触发 React 再次渲染组件（处理事件结束后渲染）。
+
+`useState` 语法： `const [value, setValue] = useState(initialValue);`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`useState` 函数返回一个包含两个元素的数组，其中第一个元素为本次渲染过程中状态的**快照**，第二个值为更改内部状态的函数（更新下一次渲染中的快照）。
+
+{% note info flat %}
+`initialValue` 为初次渲染使用的初始值，可以是简单数据类型、引用类型（数组、字符串、对象等）。
+当传入 `useState` 钩子函数内用于初始化的数据（例如上面的`initialValue`）为引用数据类型时，有以下两点需要考虑：
+
+1. 在初次渲染过程中，由于引用数据类型的特点，在后面更改了 `initialValue` 也会同步到useState中，但这仅仅会影响到 `initialValue` 中值为非引用类型数据的初值，在后续重渲染过程中不会受到 `initialValue` 的影响。
+2. **若 `initialValue` 内还存在引用类型元素，则通过 `initialValue` 变量修改其引用类型元素在任何时候都会改变组件实例内部的 `state` 值，但是不会触发组件重渲染，只有通过返回的 `setter` 函数更改才会触发重渲染（注意）**
+   因此，不要修改用于初始化的数据（例如上面的`initialValue`）和返回的快照数据（例如上面的`value`）
+   {% endnote %}
 
 {% folding yellow, 关于Hook %}
 
