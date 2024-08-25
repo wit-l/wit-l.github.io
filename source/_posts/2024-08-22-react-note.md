@@ -8,7 +8,7 @@ categories:
 description: 本文主要记录React的学习笔记
 abbrlink: 1e564abe
 date: 2024-08-22 21:40:35
-updated: 2024-08-25 18:35:00
+updated: 2024-08-25 21:58:00
 sticky: 1
 swiper_index: 2
 cover: https://tuchuang.voooe.cn/images/2024/08/17/one_room-1-1_1920x1080.webp
@@ -223,13 +223,11 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 &nbsp;&nbsp;&nbsp;&nbsp;`useState` 函数返回一个包含两个元素的数组，其中第一个元素为本次渲染过程中状态的**快照**，第二个值为更改内部状态的函数（更新下一次渲染中的快照）。
 
 {% note info flat %}
-`initialValue` 为初次渲染使用的初始值，可以是简单数据类型、引用类型（数组、字符串、对象等）。
-当传入 `useState` 钩子函数内用于初始化的数据（例如上面的`initialValue`）为引用数据类型时，有以下两点需要考虑：
 
-1. 在初次渲染过程中，由于引用数据类型的特点，在后面更改了 `initialValue` 也会同步到useState中，但这仅仅会影响到 `initialValue` 中值为非引用类型数据的初值，在后续重渲染过程中不会受到 `initialValue` 的影响。
-2. **若 `initialValue` 内还存在引用类型元素，则通过 `initialValue` 变量修改其引用类型元素在任何时候都会改变组件实例内部的 `state` 值，但是不会触发组件重渲染，只有通过返回的 `setter` 函数更改才会触发重渲染（注意）**
-   因此，不要修改用于初始化的数据（例如上面的`initialValue`）和返回的快照数据（例如上面的`value`）
-   {% endnote %}
+{% nota `initialValue` 为初次渲染时使用的初始值, 首次渲染的快照中value就是initialValue本身，重渲染后的值取决于使用setValue修改时传入的值 %}，初始值可以是简单数据类型、引用类型（数组、字符串、对象等）。
+**注意：不要直接在 `value` 和 `initialValue` 上进行修改！！！**
+
+{% endnote %}
 
 {% folding yellow, 关于Hook %}
 
@@ -245,7 +243,7 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 - 一个组件中可以定义多个 `state`。
 - 只能在组件或自定义 Hook 的最顶层调用。
 - 每个组件实例的 `state` 是隔离且私有的。也就是说，渲染同一个组件两次，每个副本都有独立的`state`，互不影响。
-- 不要直接更改 `state` 的值，这无法触发组件重渲染。`useState` 返回的数组仅仅是本次渲染所使用的一个快照版本，而非其本体;因此，在渲染过程中，对 `state` 做出的更新只能在下次渲染时生效，本次渲染过程中的 `state` 不会变化。
+- 不要直接更改 `state` 和传入 `useState` 函数的初始化值，这无法触发组件重渲染。`useState` 返回的数组仅仅是本次渲染所使用的一个快照版本，而非其本体;因此，在渲染过程中，对 `state` 做出的更新只能在下次渲染时生效，本次渲染过程中的 `state` 不会变化。
 
 {% folding yellow, React如何区分多个state？以及为什么useState只能在顶层调用？这涉及到 useState 的实现原理 %}
 
