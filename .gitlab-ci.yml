@@ -19,15 +19,16 @@ build:
     - gulp
   artifacts:
     paths:
-      - public/
+      - ./public
 
 pages:
   stage: deploy
   script:
     # GitLab Pages 需要 public 目录名为 .public
-    - mv public/ .public
+    - mv ./public .public
   artifacts:
     paths:
       - .public
+  publish: .public
   only:
     - main
