@@ -1,0 +1,32 @@
+image: node:20
+
+stages:
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}-npm-cache
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm install --global gulp-cli
+    - npm run build
+    - gulp
+  artifacts:
+    paths:
+      - public/
+
+pages:
+  stage: deploy
+  script:
+    # GitLab Pages 需要 public 目录名为 .public
+    - mv public/ .public
+  artifacts:
+    paths:
+      - .public
+  only:
+    - main
