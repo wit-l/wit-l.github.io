@@ -19,7 +19,7 @@ cover: https://tuchuang.voooe.cn/images/2024/08/17/one_room-1-1_1920x1080.webp
 &nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建{% nota UI, 用户界面（User Interface）%}的 **JavaScript 库**，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。
 
 {% note info flat %}
-React和Vue不同，严格来说并非一个框架。生产级的React框架有：[{% nota Next.js, 它的页面路由是一个全栈的React 框架，由Vercel维护 %}](https://nextjs.org)、[{% nota Remix, 一个具有嵌套路由的全栈式React框架 %}](https://remix.run)、[{% nota Gatsby, 一个快速的支持CMS的网站的React框架 %}](https://www.gatsbyjs.com/)、[{% nota Expo, 用于原生应用，可以让你创建具有真正原生 UI 的应用，包括 Android、iOS，以及 Web 应用 %}](https://expo.dev/)等等。
+React和Vue不同，严格来说并非一个框架。生产级的React框架有：[{% nota Next.js, 它的页面路由是一个全栈的React 框架，由Vercel维护 %}](https://nextjs.org)、[{% nota Remix, 一个具有嵌套路由的全栈式React框架 %}](https://remix.run)、[{% nota Gatsby, 一个快速的支持CMS的网站的React框架 %}](https://www.gatsbyjs.com/)、[{% nota Expo, 用于原生应用，可以让你创建具有真正原生 UI 的应用，包括 Android、iOS，以及 Web 应用 %}](https://expo.dev/)等。
 {% endnote %}
 
 # 组件
