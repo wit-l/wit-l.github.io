@@ -82,7 +82,7 @@ jobs:
         run: |
           git config user.email "$(git log -1 --pretty=format:'%ae')"
           git config user.name "${{ github.actor }}"
-          git remote add jihulab https://wit-lu:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-lu/wit-lu.jihulab.io.git
+          git remote add jihulab https://wit-l:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-l/wit-l.jihulab.io.git
           git pull jihulab main --rebase=true -X theirs
           git push jihulab main
         env:
