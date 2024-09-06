@@ -62,6 +62,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Push to GitLab
         run: |
+          git config user.email "witty.ysl@gmail.com"
+          git config user.name "wit-l"
           git remote add gitlab https://wit-l:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wit-l/wit-l.gitlab.io.git
           git pull gitlab main --rebase=true -X theirs
           git diff
@@ -78,6 +80,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Push to JihuLab
         run: |
+          git config user.email "witty.ysl@gmail.com"
+          git config user.name "wit-l"
           git remote add jihulab https://wit-lu:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-lu/wit-lu.jihulab.io.git
           git pull jihulab main --rebase=true -X theirs
           git diff
