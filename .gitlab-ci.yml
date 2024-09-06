@@ -12,6 +12,7 @@ cache:
 build:
   stage: build
   script:
+    - npm config set registry https://registry.npmmirror.com
     - npm install
     - npm install --global gulp-cli
     - npm run build
