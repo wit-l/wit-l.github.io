@@ -66,3 +66,17 @@ jobs:
           git push gitlab main
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+  push_to_jihulab:
+    needs: build # This ensures that the job runs after the build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code for JihuLab push
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to JihuLab
+        run: |
+          git remote add jihulab https://wit-lu:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-lu/wit-lu.jihulab.io.git
+          git push jihulab main
+        env:
+          JIHULAB_TOKEN: ${{ secrets.JIHULAB_TOKEN }}
