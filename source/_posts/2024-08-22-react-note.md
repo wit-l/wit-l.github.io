@@ -4,7 +4,7 @@ tags:
   - react
   - web
 categories:
-  - React
+  - React框架
 description: 本文主要记录React的学习笔记
 abbrlink: 1e564abe
 date: 2024-08-22 21:40:35
