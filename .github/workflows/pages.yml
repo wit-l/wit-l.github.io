@@ -63,8 +63,7 @@ jobs:
       - name: Push to GitLab
         run: |
           git remote add gitlab https://wit-l:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wit-l/wit-l.gitlab.io.git
-          git pull gitlab main --rebase=true
-          git push gitlab main
+          git push -u gitlab main --force
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
   push_to_jihulab:
@@ -78,7 +77,6 @@ jobs:
       - name: Push to JihuLab
         run: |
           git remote add jihulab https://wit-lu:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-lu/wit-lu.jihulab.io.git
-          git pull jihulab main --rebase=true
-          git push jihulab main
+          git push -u jihulab main --force
         env:
           JIHULAB_TOKEN: ${{ secrets.JIHULAB_TOKEN }}
