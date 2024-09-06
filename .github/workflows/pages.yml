@@ -53,7 +53,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
   push_to_gitlab:
-    # needs: deploy
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code for GitLab push
@@ -71,7 +71,7 @@ jobs:
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
   push_to_jihulab:
-    # needs: deploy
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code for JihuLab push
