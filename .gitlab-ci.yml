@@ -24,7 +24,7 @@ build:
 pages:
   stage: deploy
   script:
-    # GitLab Pages 需要 public 目录名为 .public
+    # GitLab Pages需要public目录名为.public
     - mv ./public .public
   artifacts:
     paths:
