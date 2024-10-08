@@ -14,7 +14,7 @@ swiper_index: 1
 cover: https://tuchuang.voooe.cn/images/2024/08/17/lianggongchunri_1920x1080.webp
 ---
 
-# ~~冒泡排序~~
+## ~~冒泡排序~~
 
 {% tabs 分栏 %}
 
@@ -67,7 +67,7 @@ function bubbleSort(arr = [], len = arr.length) {
 
 {% endtabs %}
 
-# 快速排序
+## 快速排序
 
 {% tabs 分栏 %}
 
@@ -128,7 +128,7 @@ function quickSort(arr = [], low = 0, high = arr.length - 1) {
 
 {% endtabs %}
 
-# 归并排序
+## 归并排序
 
 {% tabs 分栏 %}
 
@@ -200,7 +200,7 @@ function mergeSort(arr = [], low = 0, high = arr.length - 1) {
 
 {% endtabs %}
 
-# （大根）堆排序
+## （大根）堆排序
 
 &nbsp;&nbsp;&nbsp;&nbsp;在根节点下标为1的堆中，下标0留空，下标为i的节点的左右孩子（若存在）则分别为`2i`和`2i+1`。而当根节点下标为0时，虽然不满足上面的规则，但是仍然有类似的规律，可以先将全体下标`+1`转化为从1开始的情况，然后按照上面的规律计算其左右孩子的下标，再将得到的结果`-1`即可得到根节点下标为0的堆中左右孩子与父节点的关系。因此，从0开始存储的堆中,节点i的左右孩子分别为`[2(i + 1)] - 1`和`[2(i+1)+1] - 1`，也就是`2i + 1`和`2i + 2`。
 
@@ -266,7 +266,7 @@ function maxHeapSort(arr = [], len = arr.length) {
 
 {% endtabs %}
 
-# 鸽巢排序
+## 鸽巢排序
 
 {% tabs 分栏 %}
 

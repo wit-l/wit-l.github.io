@@ -14,15 +14,15 @@ swiper_index: 2
 cover: https://tuchuang.voooe.cn/images/2024/08/17/one_room-1-1_1920x1080.webp
 ---
 
-# React
+## React 简要介绍
 
-&nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建{% nota UI, 用户界面（User Interface）%}的 **JavaScript 库**，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。
+&nbsp;&nbsp;&nbsp;&nbsp;React 是一个用于构建{% nota UI, 用户界面（User Interface）%}的**JavaScript 库**，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。
 
 {% note info flat %}
 React和Vue不同，严格来说并非一个框架。生产级的React框架有：[{% nota Next.js, 它的页面路由是一个全栈的React 框架，由Vercel维护 %}](https://nextjs.org)、[{% nota Remix, 一个具有嵌套路由的全栈式React框架 %}](https://remix.run)、[{% nota Gatsby, 一个快速的支持CMS的网站的React框架 %}](https://www.gatsbyjs.com/)、[{% nota Expo, 用于原生应用，可以让你创建具有真正原生 UI 的应用，包括 Android、iOS，以及 Web 应用 %}](https://expo.dev/)等。
 {% endnote %}
 
-# 组件
+## 组件
 
 &nbsp;&nbsp;&nbsp;&nbsp;React应用程序由组件组成， 组件是 UI 的一部分， 可以小到一个button，大到整个页面。**React组件是返回标签的JavaScript函数**：
 
@@ -41,7 +41,7 @@ export default function MyApp() {
 }
 ```
 
-# {% nota JSX, JavaScript and XML %}语法
+## {% nota JSX, JavaScript and XML %}语法
 
 &nbsp;&nbsp;&nbsp;&nbsp;JSX 语法即上面所用的标签语法。 JSX 比 HTML 对标签的要求更为严格，必须闭合标签，如`<br />`，且一个组件只能返回一个 JSX 标签，而不能是多个，若需要返回多个兄弟标签，可以使用`<div>...</div>`或空的`<>...</>`将其包裹住（空白标签不会渲染到 DOM 中）。
 
@@ -54,7 +54,7 @@ export default function MyApp() {
 
 &nbsp;&nbsp;&nbsp;&nbsp;属性名由原 HTML 属性名改为小驼峰命名， 例如绑定点击事件处理函数`onClick`、类名`className`、样式中的属性`backgroundColor`。
 
-# JSX中通过`{}`使用JavaScript
+## JSX中通过`{}`使用JavaScript
 
 &nbsp;&nbsp;&nbsp;&nbsp;在标签中插入JavaScript变量或表达式值需要使用 `{}` 包裹， 若需要写内联样式则还必须将所有样式以对象（键值对）形式作为style属性的值传入:
 
@@ -83,7 +83,7 @@ export default function Profile() {
 }
 ```
 
-# 组件（函数）的唯一参数--Props
+## 组件（函数）的唯一参数--Props
 
 &nbsp;&nbsp;&nbsp;&nbsp; **`props`就是传递给JSX标签的信息。** 上面给`img`标签传入的`className`、`src`、`alt`、`style` 及对应的值就是一种`props`对象，另外还有更为常见的传给组件的`props`，如下面的Avatar组件：
 
@@ -113,7 +113,7 @@ function Avatar(props) {
 }
 ```
 
-{% folding yellow, 使用展开语法传递props %}
+{% folding yellow, 使用展开语法传递 props %}
 
 ```JavaScript
 function Avatar({ person, size })
@@ -134,7 +134,7 @@ function Avatar({ person, size })
 
 &nbsp;&nbsp;&nbsp;&nbsp;事实上，`props` 正是组件的唯一参数！ React 组件函数接受一个参数，即一个 `props` 对象。
 
-# JSX 作为子组件传递
+## JSX 作为子组件传递
 
 &nbsp;&nbsp;&nbsp;&nbsp;当组件作为双标签使用时， `props` 对象中将多出一个 `children` 属性，其值为组件双标签包裹的部分，实例如下：
 
@@ -170,7 +170,7 @@ export default function Profile() {
 }
 ```
 
-# 条件渲染
+## 条件渲染
 
 &nbsp;&nbsp;&nbsp;&nbsp;通常组件会需要根据不同的情况显示不同的内容。在 React 中，可以通过使用 JavaScript 的 `if` 语句、`&&` 和 `? :` 运算符来选择性地渲染 JSX。
 
@@ -184,7 +184,7 @@ export default function Profile() {
 
 {% endnote %}
 
-# 组件重渲染间的记忆
+## 组件重渲染间的记忆
 
 &nbsp;&nbsp;&nbsp;&nbsp;组件通常需要根据交互更改屏幕上显示的内容。输入表单应该更新输入字段，单击轮播图上的“下一个”应该更改显示的图片。组件需要“记住”某些东西：当前输入值、当前图片。在 React 中，这种组件特有的记忆被称为 `state`。
 
@@ -203,8 +203,9 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 
 {% folding yellow, 组件实例的生命周期 %}
 
-**函数组件**：每次渲染时，React会调用函数组件并重新计算其JSX输出，但它不会丢弃已存在的状态和副作用（`useEffect`等）。React通过“Virtual DOM”来高效地更新UI，而不是每次都销毁并重新创建整个组件树。
-**状态和副作用**：组件的状态（通过`useState`等）会在渲染之间保持不变。副作用（通过`useEffect`等设置的）也会根据依赖项来决定是否重新执行。
+**函数组件**：每次渲染时，React会调用函数组件并重新计算其JSX输出，但它不会丢弃已存在的状态和副作用（`useEffect`等）。
+React通过“Virtual DOM”来高效地更新UI，而不是每次都销毁并重新创建整个组件树。
+**状态和副作用**：组件的状态（通过`useState`等）会在前后两次渲染之间保持不变。副作用（通过`useEffect`等设置的）也会根据依赖项来决定是否重新执行。
 
 {% endfolding %}
 
@@ -232,7 +233,10 @@ React 组件内局部变量的生命周期仅存在于渲染过程中，渲染�
 {% folding yellow, 关于Hook %}
 
 - Hook即钩子，在React中，所有以“use”开头的函数都被称为Hook。
-- <b>Hooks ——以 `use` 开头的函数——只能在组件或自定义 Hook 的最顶层调用。</b>你不能在条件语句、循环语句或其他嵌套函数内调用 Hook。Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。
+- **Hooks —— 以 `use` 开头的函数——只能在组件或自定义 Hook 的最顶层调用。**
+- 不能在条件语句、循环语句或其他嵌套函数内调用 Hook。
+- Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。
+- 在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。
 
 {% endfolding %}
 
@@ -307,7 +311,7 @@ console.log(state); // After-click: ['Fred', 'Yardley']
 
 {% endfolding %}
 
-# 渲染和提交
+## 渲染和提交
 
 &nbsp;&nbsp;&nbsp;&nbsp;组件必须被React渲染后才能显示到屏幕上。在React应用中，一次屏幕更新都会发生以下三个步骤：
 
@@ -315,14 +319,14 @@ console.log(state); // After-click: ['Fred', 'Yardley']
 2. 渲染组件。
 3. 提交到 DOM。
 
-## 触发渲染
+### 触发渲染
 
-&nbsp;&nbsp;&nbsp;&nbsp;有两种原因会导致组件被渲染:
+&nbsp;&nbsp;&nbsp;&nbsp;以下两种情况下组件将被渲染:
 
 1. 组件的初次渲染。
-2. 组件（或者其祖先之一）的[**状态发生了改变**](#)引起的组件重渲染。
+2. 组件（或者其祖先之一）的内部状态发生了改变引起的组件重渲染。
 
-### 初次渲染
+#### 初次渲染
 
 &nbsp;&nbsp;&nbsp;&nbsp;当应用启动时，会触发初次渲染。框架和沙箱有时会隐藏这部分代码，但它是通过调用 `createRoot` 方法并传入目标 DOM 节点，然后用你的组件调用 `render` 函数完成的：
 {% tabs 分栏 %}
@@ -356,11 +360,11 @@ export default function Image() {
 
 {% endtabs %}
 
-### 状态（state）更新时的**重新渲染**
+#### 状态（state）更新时的**重新渲染**
 
 &nbsp;&nbsp;&nbsp;&nbsp;初次渲染后可以通过使用 `setter` 函数更新其状态（`state`）来触发重新渲染。更新组件的状态会自动将一次渲染送入队列。
 
-## 渲染组件
+### 渲染组件
 
 &nbsp;&nbsp;&nbsp;&nbsp;触发渲染后，React 会调用你的组件来确定要在屏幕上显示的内容。
 
@@ -373,7 +377,7 @@ export default function Image() {
 
 {% endfolding %}
 
-## React 把更改提交到 DOM 上
+### React 把更改提交到 DOM 上
 
 &nbsp;&nbsp;&nbsp;&nbsp;渲染组件之后，React 将会修改真实 DOM。
 

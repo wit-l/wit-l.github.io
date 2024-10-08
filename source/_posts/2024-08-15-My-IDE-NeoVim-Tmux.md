@@ -16,15 +16,15 @@ swiper_index: 2
 cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 ---
 
-# 本人的工作流介绍
+## 本人的工作流介绍
 
-## <abbr title="Integrated Development Environment（集成开发环境）">IDE</abbr> -- [Neovim](#Neovim)
+### <abbr title="Integrated Development Environment（集成开发环境）">IDE</abbr> -- [Neovim](#Neovim)
 
 &nbsp;&nbsp;&nbsp;&nbsp;集成开发环境基于LazyVim预配置框架的Neovim，并根据个人爱好额外安装了一些插件，进行了个性化的配置。效果图如下：
 ![Neovim](https://cdn.jsdelivr.net/gh/wit-l/filebed@main/images/17237363426531723736342485.png)
 &nbsp;&nbsp;&nbsp;&nbsp;Neovim配置[在这里](https://github.com/wit-l/NeovimStarter/)。其中最底部的状态栏是tmux的。
 
-## 终端复用器 -- [Tmux](#Tmux)
+### 终端复用器 -- [Tmux](#Tmux)
 
 &nbsp;&nbsp;&nbsp;&nbsp;使用tmux来对终端下的多个窗口（window）、会话（session）、面板（pane）进行管理。效果图如下：
 ![tmux](https://cdn.jsdelivr.net/gh/wit-l/filebed@main/images/17237330735801723733072788.png)
@@ -32,7 +32,7 @@ cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 
 {% note info flat %}OS: WSL2(Debian12){% endnote %}
 
-<h1 id="Neovim">Neovim</h1>
+<h2 id="Neovim">Neovim</h2>
 
 &nbsp;&nbsp;&nbsp;&nbsp;[Neovim](https://github.com/neovim/neovim)是vim的重构版本，旨在提升其可扩展性和用户体验。
 
@@ -54,7 +54,7 @@ cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 
 - Neovim 保持了与 Vim 的高度兼容性，绝大部分 Vim 插件和配置可以在 Neovim 中直接使用，同时它也引入了许多 Vim 中没有的新特性。
 
-## LazyVim
+### LazyVim
 
 &nbsp;&nbsp;&nbsp;&nbsp;[LazyVim](https://www.lazyvim.org/) 是一个基于 Neovim 的预配置框架，旨在提供一个开箱即用的高效开发环境。它整合了许多常用的插件和配置，方便用户快速上手并定制自己的 Neovim 配置。以下是 LazyVim 的一些关键特点：
 
@@ -70,7 +70,7 @@ cover: https://tuchuang.voooe.cn/images/2024/08/15/ailoma_1920x1080.webp
 5. 现代化功能：
    - LazyVim 支持 Neovim 的现代化特性，如内置的 <abbr title="（语言服务器协议）">LSP</abbr>支持、Tree-sitter 语法高亮、Telescope 模糊搜索等。
 
-<h1 id="Tmux">Tmux</h1>
+<h2 id="Tmux">Tmux</h2>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<abbr title="Terminal Multiplexer">tmux</abbr>是一个终端复用器，允许用户在一个终端会话中同时管理多个终端窗口和面板。它广泛应用于远程服务器管理、开发工作流和多任务处理。关键特点：
 
