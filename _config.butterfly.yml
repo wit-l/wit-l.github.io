@@ -208,7 +208,7 @@ anchor: false
 toc:
   post: true
   page: false
-  number: false
+  number: true
   expand: false
   style_simple: true # for post
 
