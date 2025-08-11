@@ -35,12 +35,6 @@ jobs:
         run: npm run build
       - name: Run Gulp to compress resources
         run: gulp
-      - name: Debug public directory
-        run: |
-          echo "Directory structure:"
-          ls -R ./public
-          echo "Checking for index.html:"
-          [ -f ./public/index.html ] || exit 1
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
