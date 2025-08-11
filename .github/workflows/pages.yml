@@ -19,7 +19,7 @@ jobs:
         with:
           # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
           # Ref: https://github.com/actions/setup-node#supported-version-syntax
-          node-version: "20"
+          node-version: "22"
       - name: Cache NPM dependencies
         uses: actions/cache@v4
         with:
@@ -35,6 +35,8 @@ jobs:
         run: npm run build
       - name: Run Gulp to compress resources
         run: gulp
+      - name: List files in public directory
+        run: ls -R ./public
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -52,38 +54,38 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-  push_to_gitlab:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code for GitLab push
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to GitLab
-        run: |
-          git config user.email "$(git log -1 --pretty=format:'%ae')"
-          git config user.name "${{ github.actor }}"
-          git remote add gitlab https://wit-l:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wit-l/wit-l.gitlab.io.git
-          # 由于git pull 的rebase版本与merge版冲突时两端更改位置相反，所以此处theirs其实是保留本地更改
-          git pull gitlab main --rebase=true -X theirs
-          git push gitlab main
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-  push_to_jihulab:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code for JihuLab push
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push to JihuLab
-        run: |
-          git config user.email "$(git log -1 --pretty=format:'%ae')"
-          git config user.name "${{ github.actor }}"
-          git remote add jihulab https://wit-l:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-l/wit-l.jihulab.io.git
-          git pull jihulab main --rebase=true -X theirs
-          git push jihulab main
-        env:
-          JIHULAB_TOKEN: ${{ secrets.JIHULAB_TOKEN }}
+  # push_to_gitlab:
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code for GitLab push
+  #       uses: actions/checkout@v4
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Push to GitLab
+  #       run: |
+  #         git config user.email "$(git log -1 --pretty=format:'%ae')"
+  #         git config user.name "${{ github.actor }}"
+  #         git remote add gitlab https://wit-l:${{ secrets.GITLAB_TOKEN }}@gitlab.com/wit-l/wit-l.gitlab.io.git
+  #         # 由于git pull 的rebase版本与merge版冲突时两端更改位置相反，所以此处theirs其实是保留本地更改
+  #         git pull gitlab main --rebase=true -X theirs
+  #         git push gitlab main
+  #       env:
+  #         GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+  # push_to_jihulab:
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code for JihuLab push
+  #       uses: actions/checkout@v4
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Push to JihuLab
+  #       run: |
+  #         git config user.email "$(git log -1 --pretty=format:'%ae')"
+  #         git config user.name "${{ github.actor }}"
+  #         git remote add jihulab https://wit-l:${{ secrets.JIHULAB_TOKEN }}@jihulab.com/wit-l/wit-l.jihulab.io.git
+  #         git pull jihulab main --rebase=true -X theirs
+  #         git push jihulab main
+  #       env:
+  #         JIHULAB_TOKEN: ${{ secrets.JIHULAB_TOKEN }}
