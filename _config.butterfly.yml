@@ -717,7 +717,7 @@ aside:
       link: https://github.com/wit-l
   card_announcement:
     enable: true
-    content: <center><b>--- 域名 ---<br><a href="https://www.wit-l.us.kg" title="此线路部署于github" class="anno_content"><font color="#5ea6e5">wit-l.us.kg</font></a>&nbsp;|&nbsp;<a href="https://www.witty.us.kg" title="重定向到wit-l.us.kg" class="anno_content"><font color="#5ea6e5">witty.us.kg</font></a></b></center>
+    content: <center><b>--- 域名 ---<br><a href="https://wit-l.github.io" title="此线路部署于github" class="anno_content"><font color="#5ea6e5">wit-l.github.io</font></a>&nbsp;|&nbsp;<a href="#" title="暂无" class="anno_content"><font color="#5ea6e5">暂无</font></a></b></center>
     # <br>--- 备用域名 ---<br><a href="https://netlify.fomal.cc" title="此线路部署于Netlify" class="anno_content"><font color="#5ea6e5">netlify.fomal.cc</font></a><br><a href="https://cloudflare.fomal.cc" title="此线路部署于Cloudflare" class="anno_content"><font color="#5ea6e5">cloudflare.fomal.cc</font></a><br>--- 网站安卓APP ---<br>🍧<a href="https://lskypro.acozycotage.net/Fomalhaut/Fomalhaut.apk" title="点这里可以下载网站的安卓APP" class="anno_content"><font color="#5ea6e5">点此下载</font></a>🍧
   card_recent_post:
     enable: false
