@@ -2,7 +2,8 @@ name: Pages
 
 on:
   push:
-    branches: [main] # default branch
+    branches:
+      - main # default branch
 
 jobs:
   build:
